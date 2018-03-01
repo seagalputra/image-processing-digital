@@ -22,7 +22,7 @@ function varargout = tugas1(varargin)
 
 % Edit the above text to modify the response to help tugas1
 
-% Last Modified by GUIDE v2.5 21-Feb-2018 14:04:34
+% Last Modified by GUIDE v2.5 01-Mar-2018 09:23:15
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -290,3 +290,61 @@ imshow(gambar);
 
 axes(handles.after);
 imshow(down);
+
+
+% --- Executes on button press in rotate90.
+function rotate90_Callback(hObject, eventdata, handles)
+% hObject    handle to rotate90 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+
+r = rotate(gambar);
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(r);
+
+% --- Executes on button press in rotate180.
+function rotate180_Callback(hObject, eventdata, handles)
+% hObject    handle to rotate180 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+
+r_180 = flip_vertical(gambar);
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(r_180);
+
+% --- Executes on button press in rotate270.
+function rotate270_Callback(hObject, eventdata, handles)
+% hObject    handle to rotate270 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+
+temp_r = rotate(gambar);
+r_270 = flip_horizontal(temp_r);
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(r_270);
+
+% --- Executes on button press in histogram.
+function histogram_Callback(hObject, eventdata, handles)
+% hObject    handle to histogram (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
