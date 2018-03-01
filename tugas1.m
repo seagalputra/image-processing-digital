@@ -22,7 +22,7 @@ function varargout = tugas1(varargin)
 
 % Edit the above text to modify the response to help tugas1
 
-% Last Modified by GUIDE v2.5 01-Feb-2018 19:14:54
+% Last Modified by GUIDE v2.5 21-Feb-2018 14:04:34
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -91,3 +91,202 @@ imshow(gambar);
 
 % save the updated handles object
 guidata(hObject,handles);
+
+
+% --- Executes on button press in grayscale.
+function grayscale_Callback(hObject, eventdata, handles)
+% hObject    handle to grayscale (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+g = grayscale(gambar);
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(g);
+
+% --- Executes on button press in zoomin.
+function zoomin_Callback(hObject, eventdata, handles)
+% hObject    handle to zoomin (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+z = zoom_in(gambar, 3, 3);
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(z);
+
+% --- Executes on button press in zoomout.
+function zoomout_Callback(hObject, eventdata, handles)
+% hObject    handle to zoomout (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+zo = zoom_in(gambar, 0.5, 0.5);
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(zo);
+
+% --- Executes on button press in inverse.
+function inverse_Callback(hObject, eventdata, handles)
+% hObject    handle to inverse (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+i = inverse(gambar);
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(i);
+
+
+% --- Executes on button press in flip_vertical.
+function flip_vertical_Callback(hObject, eventdata, handles)
+% hObject    handle to flip_vertical (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+f = flip_vertical(gambar);
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(f);
+
+% --- Executes on button press in flip_horizontal.
+function flip_horizontal_Callback(hObject, eventdata, handles)
+% hObject    handle to flip_horizontal (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+h = flip_horizontal(gambar);
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(h);
+
+% --- Executes on button press in crop.
+function crop_Callback(hObject, eventdata, handles)
+% hObject    handle to crop (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+
+c = crop(gambar);
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(c);
+
+% --- Executes on button press in brightness_up.
+function brightness_up_Callback(hObject, eventdata, handles)
+% hObject    handle to brightness_up (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+
+prompt = {'Enter brightness value:'};
+dlg_title = 'Value';
+num_lines = 1;
+answer = inputdlg(prompt,dlg_title,num_lines);
+answer = str2num(cell2mat(answer));
+
+% menaikkan kecerahan sebanyak nilai inputan user
+up = gambar + answer;
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(up);
+% --- Executes on button press in brightness_down.
+function brightness_down_Callback(hObject, eventdata, handles)
+% hObject    handle to brightness_down (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+
+prompt = {'Enter brightness value:'};
+dlg_title = 'Value';
+num_lines = 1;
+answer = inputdlg(prompt,dlg_title,num_lines);
+answer = str2num(cell2mat(answer));
+
+% menaikkan kecerahan sebanyak nilai inputan user
+down = gambar - answer;
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(down);
+
+% --- Executes on button press in brightness_kali.
+function brightness_kali_Callback(hObject, eventdata, handles)
+% hObject    handle to brightness_kali (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+
+prompt = {'Enter brightness value:'};
+dlg_title = 'Value';
+num_lines = 1;
+answer = inputdlg(prompt,dlg_title,num_lines);
+answer = str2num(cell2mat(answer));
+
+% menaikkan kecerahan sebanyak nilai inputan user
+kali = gambar * answer;
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(kali);
+
+% --- Executes on button press in brightness_bagi.
+function brightness_bagi_Callback(hObject, eventdata, handles)
+% hObject    handle to brightness_bagi (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+
+prompt = {'Enter brightness value:'};
+dlg_title = 'Value';
+num_lines = 1;
+answer = inputdlg(prompt,dlg_title,num_lines);
+answer = str2num(cell2mat(answer));
+
+% menaikkan kecerahan sebanyak nilai inputan user
+down = gambar / answer;
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(down);
