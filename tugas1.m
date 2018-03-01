@@ -348,3 +348,8 @@ function histogram_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 global gambar;
 global File_Name Path_Name;
+
+histogram(gambar);
+
+axes(handles.before);
+imshow(gambar);
