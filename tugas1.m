@@ -22,7 +22,7 @@ function varargout = tugas1(varargin)
 
 % Edit the above text to modify the response to help tugas1
 
-% Last Modified by GUIDE v2.5 01-Mar-2018 09:23:15
+% Last Modified by GUIDE v2.5 22-Mar-2018 10:49:49
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -353,3 +353,52 @@ histogram(gambar);
 
 axes(handles.before);
 imshow(gambar);
+
+
+% --- Executes on button press in edge_detection.
+function edge_detection_Callback(hObject, eventdata, handles)
+% hObject    handle to edge_detection (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+
+e = edge(gambar);
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(e);
+
+% --- Executes on button press in blur.
+function blur_Callback(hObject, eventdata, handles)
+% hObject    handle to blur (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+
+b = blur(gambar);
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(b);
+
+% --- Executes on button press in sharpening.
+function sharpening_Callback(hObject, eventdata, handles)
+% hObject    handle to sharpening (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+
+s = sharp(gambar);
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(s);
