@@ -22,7 +22,7 @@ function varargout = tugas1(varargin)
 
 % Edit the above text to modify the response to help tugas1
 
-% Last Modified by GUIDE v2.5 22-Mar-2018 10:49:49
+% Last Modified by GUIDE v2.5 05-Apr-2018 08:45:26
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -402,3 +402,52 @@ imshow(gambar);
 
 axes(handles.after);
 imshow(s);
+
+
+% --- Executes on button press in mean_filter.
+function mean_filter_Callback(hObject, eventdata, handles)
+% hObject    handle to mean_filter (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+
+mea = mean_filter(gambar);
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(mea);
+
+% --- Executes on button press in median_filter.
+function median_filter_Callback(hObject, eventdata, handles)
+% hObject    handle to median_filter (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+
+med = median_filter(gambar);
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(med);
+
+% --- Executes on button press in modus_filter.
+function modus_filter_Callback(hObject, eventdata, handles)
+% hObject    handle to modus_filter (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+
+modus = modus_filter(gambar);
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(modus);
