@@ -22,7 +22,7 @@ function varargout = tugas1(varargin)
 
 % Edit the above text to modify the response to help tugas1
 
-% Last Modified by GUIDE v2.5 05-Apr-2018 08:45:26
+% Last Modified by GUIDE v2.5 12-Apr-2018 08:56:52
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -451,3 +451,67 @@ imshow(gambar);
 
 axes(handles.after);
 imshow(modus);
+
+
+% --- Executes on button press in region_growth.
+function region_growth_Callback(hObject, eventdata, handles)
+% hObject    handle to region_growth (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+
+x = str2num(get(handles.x,'string'));
+y = str2num(get(handles.y,'string'));
+
+segmented = region_growth(gambar, x, y);
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(segmented);
+
+function x_Callback(hObject, eventdata, handles)
+% hObject    handle to x (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of x as text
+%        str2double(get(hObject,'String')) returns contents of x as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function x_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to x (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function y_Callback(hObject, eventdata, handles)
+% hObject    handle to y (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of y as text
+%        str2double(get(hObject,'String')) returns contents of y as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function y_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to y (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end

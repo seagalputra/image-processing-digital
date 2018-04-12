@@ -1,5 +1,4 @@
 function z = zoom_in(gambar, sy, sx)
-gambar = imread('pic.jpeg');
 
 ukuran = size(gambar);
 tinggi = ukuran(1);
