@@ -22,7 +22,7 @@ function varargout = tugas1(varargin)
 
 % Edit the above text to modify the response to help tugas1
 
-% Last Modified by GUIDE v2.5 12-Apr-2018 08:56:52
+% Last Modified by GUIDE v2.5 26-Apr-2018 10:40:38
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -515,3 +515,38 @@ function y_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+% --- Executes on button press in dilasi.
+function dilasi_Callback(hObject, eventdata, handles)
+% hObject    handle to dilasi (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+
+g = grayscale(gambar);
+dil = dilasi(g);
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(dil);
+
+% --- Executes on button press in erosi.
+function erosi_Callback(hObject, eventdata, handles)
+% hObject    handle to erosi (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global gambar;
+global File_Name Path_Name;
+
+g = grayscale(gambar);
+ero = erosi(g);
+
+axes(handles.before);
+imshow(gambar);
+
+axes(handles.after);
+imshow(ero);
